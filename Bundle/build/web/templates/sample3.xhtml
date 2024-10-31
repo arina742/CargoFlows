@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+
+    <h:head>
+
+        <title>Узел 3.0</title>
+        <style>
+            body {
+                margin: 0;
+            }
+            .menu {
+                position: fixed; /* Фиксированное положение меню */
+                top: 0;
+                left: 0;
+                right: 0;
+                background-color: #333;
+                color: white;
+                padding: 15px; /* Отступы внутри меню */
+                text-align: center;
+            }
+            .content {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh; /* Занять всю высоту окна */
+                font-size: 42px;
+                text-align: center;
+                margin-top: 60px;
+            }
+        </style>
+    </h:head>
+
+    <h:body>
+        <h:form>
+            <div class="menu">
+                <h:panelGroup style="position: relative; display: inline-block;"> <!-- Используйте relative для родительского контейнера -->
+                    <h:graphicImage 
+                        value="/images/boundle.png" 
+                        alt="На главную"
+                        style="cursor: pointer; position: absolute; top: 10px; left: 10px; z-index: 100;" 
+                        onclick="window.location = '#{sourceBean.clickHomePage()}';"   
+                        width="70" 
+                        height="50"/>
+            </h:panelGroup>
+            <p:menubar>
+                <p:submenu label="Грузопотоки на подходах">
+<!--                        <p:menuitem value="Создать проект" action="#{sourceBean.clickCrate()}" />
+                    <p:menuitem value="Открыть проект" action="#{sourceBean.clickOpen()}" />
+                    <p:menuitem value="Закрыть проект" disabled="#{sourceBean.visibility}" />                    
+                    <p:menuitem value="Управление" action="#{sourceBean.clickManagment()}" />
+                    <p:menuitem value="Выход" action="#{sourceBean.exit()}"/>-->
+                </p:submenu>
+
+                <p:submenu label="Внутренняя работа (погрузка/выгрузка)">
+<!--                        <p:menuitem value="Ввод станций" action="#{sourceBean.clickEnterStationsPage()}"/>
+                    <p:menuitem value="Графическое представление" action="#{sourceBean.clickGraficViewPage()}"/>
+                    <p:submenu label="Ввод данных" >
+                        <p:menuitem value="Данные подходов" action="#{sourceBean.clickDataApproaches()}"/>
+                        <p:menuitem value="Ц011" action="#{sourceBean.clickC011()}"/>
+                    </p:submenu>
+                    <p:menuitem value="Целевые потоки" action="#{sourceBean.clickTargetStreams()}"/>-->
+                </p:submenu>
+                <p:submenu label="Грузооборот по роду груза">
+<!--                        <p:menuitem value="Грузопотоки" action="#{sourceBean.clickCargoFlows()}"/> 
+                    <p:menuitem value="Вагонопотоки" action="#{sourceBean.clickVanFlows()}"/>
+                    <p:menuitem value="Поездопотоки" action="#{sourceBean.clickTrainFlows()}"/>
+                    <p:menuitem value="Выходные данные" action="#{sourceBean.clickOutputData()}"/>-->
+                </p:submenu>
+                <p:submenu label="Перевозки в узлу">
+<!--                        <p:menuitem value="Расчет" action="#{sourceBean.clickCalculation()}"/> 
+                    <p:menuitem value="Выходные данные" action="#{sourceBean.clickOutputData2()}"/>
+                    <p:menuitem value="Таблицы данных ПЗ(WORD)" action="#{sourceBean.clickTable()}"/>
+                    <p:menuitem value="Экспорт в Excel" action="#{sourceBean.clickExcel()}"/>-->
+                </p:submenu>
+
+                <!--                    <p:submenu label="Поездопотоки">
+                                        <p:menuitem value="Расчет" action="#{sourceBean.clickCalculation2()}"/>
+                                        <p:menuitem value="Поездопотоки" action="#{sourceBean.clickTrainFlows2()}"/>
+                                        <p:menuitem value="Поездопотоки по перегонам" action="#{sourceBean.clickTrainFlowsByStages()}"/>
+                                    </p:submenu>-->
+            </p:menubar>
+        </div>
+        <div class="content">
+            <ui:insert name="content">
+
+            </ui:insert>
+        </div>
+    </h:form>
+</h:body>
+</html>
